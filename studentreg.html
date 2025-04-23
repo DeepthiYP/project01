@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mentor Registration</title>
+  <link rel="stylesheet" href="studentreg.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">MentorConnect</div>
+    <ul class="nav-links">
+   
+    </ul>
+  </nav>
+
+  <div class="form-container">
+    <h2>Mentor Registration Form</h2>
+    <form action="#" method="post">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="role">Select Role</label>
+      <select id="role" name="role" required>
+        <option value="">-- Select Mentor Type --</option>
+        <option value="student">Student Mentor</option>
+        <option value="staff">Staff Mentor</option>
+      </select>
+
+      <label for="department">Department</label>
+      <input type="text" id="department" name="department" required />
+
+      <label for="linkedin">LinkedIn Profile URL</label>
+      <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile" required />
+
+      <label for="experience">Mentoring Experience</label>
+      <textarea id="experience" name="experience" rows="4" required></textarea>
+
+      <button type="submit">Submit Registration</button>
+    </form>
+  </div>
+
+</body>
+</html>

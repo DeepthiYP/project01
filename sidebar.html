@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Sidebar with Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <nav class="topbar">
+    <button id="menu-toggle" class="hamburger">&#9776;</button>
+    <div class="nav-container">
+      <h1 class="logo">EduBridge</h1>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <div class="sidebar-header">
+      <div class="logo">LOGO</div>
+    </div>
+    <div class="profile">
+      <img src="https://via.placeholder.com/60" alt="User" class="profile-pic" />
+      <p class="username">John Doe</p>
+    </div>
+    <nav class="menu">
+      <a href="#"><i data-lucide="user-plus"></i> Mentor Registration</a>
+      <a href="#" id="openChat"><i data-lucide="message-square"></i> Common Group Discussion</a>
+      <a href="#"><i data-lucide="file-text"></i> Feedback</a>
+      <a href="#"><i data-lucide="lock"></i> Change Password</a>
+      <a href="#" class="logout"><i data-lucide="log-out"></i> Log Out</a>
+    </nav>
+  </aside>
+
+  <!-- Chat Modal -->
+  <div class="chat-modal" id="chatModal">
+    <div class="chat-header">
+      <h3>Common Group Discussion</h3>
+      <button id="chatCloseBtn">&times;</button>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Type your message..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <!-- 🏠 Home Section -->
+  <section class="home" id="home">
+    <h1>CONNECT AND LEARN</h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="studentgroup.jpg" alt="Box 1">
+        <h2>STUDENT GROUP</h2>
+       <a href="studentgroup.html"><button>Explore</button></a> 
+      </div>
+      <div class="box">
+        <img src="studentmentor.jpg" alt="Box 2">
+        <h2>STUDENT MENTOR</h2>
+       <a href="member.html"><button>Explore</button></a> 
+      </div>
+      <div class="box">
+        <img src="staff.jpg" alt="Box 3">
+        <h2>STAFF MENTOR</h2>
+        <a href="member.html"><button>Explore</button></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ℹ️ About Section -->
+  <section class="about">
+    <div class="container">
+      <div class="text-area">
+        <h1 class="title">Vision</h1>
+        <p class="subheading">Our Mission and Values</p>
+        <p class="description">
+          At <strong>EduBridge</strong>, we are dedicated to enhancing the educational experience
+          by fostering meaningful connections and providing valuable mentorship
+          opportunities. Our goal is to create a supportive environment where
+          students can thrive academically and personally. Join us in this
+          exciting journey of learning and growth.
+        </p>
+        <button class="learn-more">Learn More</button>
+      </div>
+      <div class="image-area">
+        <img src="https://i.imgur.com/k0Zt1tS.png" alt="Mentor" class="main-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 📬 Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduBridge Group</title>
+  <link rel="stylesheet" href="studentgroup.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">EduBridge</h1>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <section class="group-feed">
+      <h2>Groups Feed</h2>
+      <p class="subtitle">View groups and posts below.</p>
+
+      <div class="create-post">
+        <div class="avatar">J</div>
+        <input type="text" id="postInput" placeholder="Share something..." />
+        <button onclick="createPost()">Create a Post</button>
+      </div>
+
+      <div class="post-options">
+        <button>📷 Photo</button>
+        <button>🎥 Video</button>
+        <button>🎞️ GIF</button>
+      </div>
+
+      <div id="postsContainer" class="post-list">
+        <div class="post">
+          <div class="avatar">J</div>
+          <div class="post-body">
+            <p class="post-meta">Janise Deepthi YP • 4 days ago</p>
+            <p class="post-text">
+              Welcome to our group <strong>EduBridge Group</strong>! A space for us to connect and share with each other. Start by posting your thoughts, sharing media, or creating a poll.
+            </p>
+            <input type="text" class="comment-input" placeholder="Write a comment..." />
+          </div>
+        </div>
+      </div>
+
+      <div class="invite-box">
+        <h3>Invite Members</h3>
+        <p>Send out personal invites to get more members in your group.</p>
+        <button>Invite</button>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <input type="text" class="search" placeholder="Search" />
+      <div class="group-info">
+        <h4>My Groups</h4>
+        <div class="group-entry">
+          <span>EduBridge Group</span>
+          <span class="member-count">1 member</span>
+        </div>
+        <button class="create-group">+ Create Group</button>
+      </div>
+    </aside>
+  </main>
+  <section class="scheduler">
+    <h2>📅 Schedule a Session</h2>
+    <form id="scheduleForm">
+      <input type="text" id="studentName" placeholder="Your Name" required />
+      <input type="date" id="meetingDate" required />
+      <input type="time" id="meetingTime" required />
+      <button type="submit">Schedule</button>
+    </form>
+    <div id="confirmation" class="toast"></div>
+  </section>
+
+  <section class="timetable">
+    <h2>🗓️ Weekly Timetable</h2>
+    <form id="timetableForm">
+      <select id="day" required>
+        <option value="">Day</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+      </select>
+      <input type="text" id="timeSlot" placeholder="Time (e.g., 10-11am)" required />
+      <input type="text" id="activity" placeholder="Activity (e.g., Math Class)" required />
+      <button type="submit">Add</button>
+    </form>
+
+    <div class="grid" id="timetableGrid"></div>
+  </section>
+
+
+  <script src="home.js"></script>
+</body>
+</html>

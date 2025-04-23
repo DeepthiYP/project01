@@ -1,0 +1,40 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Group Chat - MentorConnect</title>
+  <link rel="stylesheet" href="groupdiscussion.css" />
+</head>
+<body>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Groups</h2>
+      <ul>
+        <li class="active">Mentor Group</li>
+        <li>Project Team</li>
+        <li>General Chat</li>
+      </ul>
+    </aside>
+
+    <main class="chat-section">
+      <header class="chat-header">
+        <h3>Mentor Group</h3>
+      </header>
+
+      <div class="chat-box" id="chatBox">
+        <div class="message received">Welcome everyone to the Mentor Group!</div>
+        <div class="message sent">Thanks! Happy to be here.</div>
+      </div>
+
+      <footer class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type a message..." />
+        <button id="sendBtn">Send</button>
+      </footer>
+    </main>
+  </div>
+
+  <script src="groupdiscussion.js"></script>
+</body>
+</html>
