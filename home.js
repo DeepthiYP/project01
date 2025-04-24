@@ -4,6 +4,7 @@ function scrollToSection(id) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
 // studentgroup page
 function createPost() {
   const input = document.getElementById("postInput");

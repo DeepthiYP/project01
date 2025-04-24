@@ -22,7 +22,7 @@
   width: 100%;
   position: fixed;
   top: 0;
-  background-color: #64a0d1;
+  background-color: #0b3d91;
   color: white;
   z-index: 999;
   
@@ -38,6 +38,13 @@
   align-items: center;
 }
 
+.community-link {
+  text-decoration: none;
+  color: #f9fafc;
+  font-weight: 600;
+  background: transparent;
+}
+
 .nav-links a {
   margin-left: 20px;
   color: white;
@@ -45,7 +52,7 @@
 }
 
 .nav-links a:hover{
-  color: rgb(244, 176, 192);
+  color:#dbefff;
   text-decoration: underline;
 } 
   
@@ -87,7 +94,7 @@
   }
   
   .create-post button {
-    background: var(--primary);
+    background: #0056b3;
     color: var(--white);
     border: none;
     padding: 10px 14px;
@@ -155,7 +162,7 @@
   
   .invite-box {
     border: 1px dashed #ccc;
-    background: #fff7ef;
+    background: #dbefff;
     padding: 20px;
     border-radius: 12px;
     text-align: center;
@@ -166,7 +173,7 @@
   }
   
   .invite-box button {
-    background: var(--primary);
+    background:#0056b3;
     color: white;
     border: none;
     padding: 8px 20px;
@@ -266,7 +273,7 @@
   
   form button {
     padding: 10px 20px;
-    background: #6c63ff;
+    background: #0056b3;
     color: white;
     border: none;
     border-radius: 6px;
@@ -275,7 +282,7 @@
   }
   
   form button:hover {
-    background: #574fe7;
+    background: #0056b3;
   }
   
   .toast {

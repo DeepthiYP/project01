@@ -19,7 +19,7 @@
   /* Sidebar */
   .sidebar {
     width: 240px;
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
     padding: 20px;
   }
@@ -41,7 +41,7 @@
   
   .sidebar li:hover,
   .sidebar .active {
-    background-color: #3399ff;
+    background-color: #0056b3;
   }
   
   /* Chat Section */
@@ -54,7 +54,7 @@
   
   /* Header */
   .chat-header {
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
     padding: 16px;
     font-size: 18px;
@@ -108,7 +108,7 @@
   }
   
   .chat-input button {
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -119,5 +119,5 @@
   }
   
   .chat-input button:hover {
-    background-color: #0056b3;
+    background-color: #579de9;
   }
