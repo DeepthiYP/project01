@@ -6,10 +6,13 @@
   <title>Home</title>
   <link rel="stylesheet" href="home.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="topbar">
-    <button id="menu-toggle" class="hamburger">&#9776;</button>
+    <button id="hamburger" class="hamburger">&#9776;</button>
     <div class="nav-container">
       <h1 class="logo">EduBridge</h1>
       <div class="nav-links">
@@ -25,15 +28,15 @@
   <aside class="sidebar" id="sidebar">
     <button class="close-btn" id="close-btn">&times;</button>
     <div class="sidebar-header">
-      <div class="logo">LOGO</div>
+      <div class="logo">Home</div>
     </div>
     <div class="profile">
-      <img src="https://via.placeholder.com/60" alt="User" class="profile-pic" />
+      <img src="logo2" alt="User" class="profile-pic" />
       <p class="username">John Doe</p>
     </div>
     <nav class="menu">
-      <a href="#"><i data-lucide="user-plus"></i> Mentor Registration</a>
-      <a href="#" id="openChat"><i data-lucide="message-square"></i> Common Group Discussion</a>
+      <a href="studentreg.html"><i data-lucide="user-plus"></i> Mentor Registration</a>
+      <a href="groupdiscussion.html" id="openChat"><i data-lucide="message-square"></i> Common Group Discussion</a>
       <a href="#"><i data-lucide="file-text"></i> Feedback</a>
       <a href="#"><i data-lucide="lock"></i> Change Password</a>
       <a href="#" class="logout"><i data-lucide="log-out"></i> Log Out</a>
@@ -69,7 +72,7 @@
       <div class="box">
         <img src="staff.jpg" alt="Box 3">
         <h2 class="font-color">STAFF MENTOR</h2>
-        <a href="member.html"><button>Explore</button></a>
+        <a href="staffmember.html"><button>Explore</button></a>
       </div>
     </div>
   </section>
@@ -150,6 +153,28 @@
   </script>
   
   <!-- JS -->
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('.sidebar');
+    const backdrop = document.querySelector('.backdrop');
+    const closeBtn = document.querySelector('.close-btn');
+  
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      backdrop.classList.add('show');
+    });
+  
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      backdrop.classList.remove('show');
+    });
+  
+    backdrop.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      backdrop.classList.remove('show');
+    });
+  </script>
 <script src="home.js"></script>
 </body>
 </html>

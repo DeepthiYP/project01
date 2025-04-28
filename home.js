@@ -97,7 +97,7 @@ function renderTimetable() {
 // Initialize on load
 renderTimetable();
 // Sidebar
-const menuToggle = document.getElementById('menu-toggle');
+const menuToggle = document.getElementById('hamburger');
 const sidebar = document.getElementById('sidebar');
 const backdrop = document.getElementById('backdrop');
 const closeBtn = document.getElementById('close-btn');
@@ -153,5 +153,6 @@ function sendMessage() {
   chatInput.value = '';
   chatBody.scrollTop = chatBody.scrollHeight;
 }
+
 
 
