@@ -153,6 +153,17 @@ function sendMessage() {
   chatInput.value = '';
   chatBody.scrollTop = chatBody.scrollHeight;
 }
+// Show modal when + Create Group is clicked
+document.querySelector('.create-group').addEventListener('click', () => {
+  document.getElementById('groupModal').style.display = 'flex';
+});
+
+// Hide modal when clicking outside the modal content
+document.getElementById('groupModal').addEventListener('click', (e) => {
+  if (e.target.id === 'groupModal') {
+    document.getElementById('groupModal').style.display = 'none';
+  }
+});
 
 
 

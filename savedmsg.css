@@ -1,0 +1,56 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f8ff; /* light blue background */
+    color: #003366; /* deep blue text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header styling */
+  .page-header {
+    background-color: #007BFF; /* vibrant blue */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Main content styling */
+  .content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  /* Message box */
+  .message-box {
+    background-color: white;
+    border: 1px solid #007BFF;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .message-box h2 {
+    margin-bottom: 15px;
+    color: #0056b3;
+  }
+  
+  .message-box p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
