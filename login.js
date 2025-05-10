@@ -1,35 +1,32 @@
+// script.js
 
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  import {getDatabase, ref, set, get, child}from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyDOJhJAt4H74Ji2I6j3OnG5_0uwxH2hbxY",
-    authDomain: "edubridge-1cf25.firebaseapp.com",
-    projectId: "edubridge-1cf25",
-    storageBucket: "edubridge-1cf25.firebasestorage.app",
-    messagingSenderId: "1021326832240",
-    appId: "1:1021326832240:web:895da4c64e51e495033ab5"
-  };
+// ✅ Replace below with your actual config
+const firebaseConfig = {
+  apiKey: "AIzaSyBo7qdC9YUC0agVL5BwjkAYnjOHg3a3Zbc",
+  authDomain: "freshathon-6fba1.firebaseapp.com",
+  projectId: "freshathon-6fba1",
+  storageBucket: "freshathon-6fba1.firebasestorage.app",
+  messagingSenderId: "672088413747",
+  appId: "1:672088413747:web:65dd4d4d9a407665a8b546"
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+};
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-  // get ref to database services
-  const db = getdatabase(app);
+window.login = function () {
+  const email = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-  document.getElementById("submit").addEventListener('click', function(e){
-
-    set(ref(db, 'user/' + document.getElementById("username").value),
-    {
-
-        username: document.getElementById("username").value,
-        password: document.getElementById("password").value
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert("Login successful!");
+      window.location.href = "home.html"; // ✅ only logged-in users can reach this
+    })
+    .catch((error) => {
+      alert("Login failed: " + error.message);
     });
-
-    alert("Login successful !");
-  })
+};

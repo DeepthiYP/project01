@@ -153,17 +153,26 @@ function sendMessage() {
   chatInput.value = '';
   chatBody.scrollTop = chatBody.scrollHeight;
 }
-// Show modal when + Create Group is clicked
-document.querySelector('.create-group').addEventListener('click', () => {
-  document.getElementById('groupModal').style.display = 'flex';
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("groupModal");
+  const openBtn = document.querySelector(".create-group");
+  const closeBtn = document.querySelector(".close-btn");
+
+  openBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  });
 });
 
-// Hide modal when clicking outside the modal content
-document.getElementById('groupModal').addEventListener('click', (e) => {
-  if (e.target.id === 'groupModal') {
-    document.getElementById('groupModal').style.display = 'none';
-  }
-});
 
 
 

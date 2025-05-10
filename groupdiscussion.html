@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Group Chat - MentorConnect</title>
   <link rel="stylesheet" href="groupdiscussion.css" />
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 </head>
 <body>
 
@@ -12,8 +16,8 @@
     <aside class="sidebar">
       <h2>Groups</h2>
       <ul>
-        <li class="active"><button><a href="groupdiscussion.html">Mentor Chat</a></button></li>
-        <li><button><a href="savedmsg.html" >Saved messages</a></button></li>
+        <li class="active"><a href="groupdiscussion.html">Mentor Chat</a></li>
+        <li><a href="savedmsg.html">Saved messages</a></li>
       </ul>
     </aside>
 
@@ -23,8 +27,7 @@
       </header>
 
       <div class="chat-box" id="chatBox">
-        <div class="message received">Welcome everyone to the Mentor Group!</div>
-        <div class="message sent">Thanks! Happy to be here.</div>
+        <!-- Messages will appear here -->
       </div>
 
       <footer class="chat-input">
@@ -34,6 +37,65 @@
     </main>
   </div>
 
-  <script src="groupdiscussion.js"></script>
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+  apiKey: "AIzaSyBo7qdC9YUC0agVL5BwjkAYnjOHg3a3Zbc",
+  authDomain: "freshathon-6fba1.firebaseapp.com",
+  projectId: "freshathon-6fba1",
+  storageBucket: "freshathon-6fba1.firebasestorage.app",
+  messagingSenderId: "672088413747",
+  appId: "1:672088413747:web:65dd4d4d9a407665a8b546"
+};
+
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // DOM elements
+    const chatBox = document.getElementById('chatBox');
+    const messageInput = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    // Send message function
+    function sendMessage() {
+      const message = messageInput.value.trim();
+      if (message !== '') {
+        const msgData = {
+          text: message,
+          timestamp: Date.now(),
+          sender: 'You' // You can replace this with logged-in user name later
+        };
+
+        // Push the message to Firebase Realtime Database
+        db.ref('mentor-group-messages').push(msgData);
+
+        // Clear the input field after sending the message
+        messageInput.value = '';
+      }
+    }
+
+    // Send message when clicking "Send"
+    sendBtn.addEventListener('click', sendMessage);
+
+    // Send message when pressing Enter key
+    messageInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    // Load messages from Firebase in real-time
+    db.ref('mentor-group-messages').on('child_added', (snapshot) => {
+      const msg = snapshot.val();
+      const msgElement = document.createElement('div');
+      msgElement.classList.add('message');
+      msgElement.classList.add(msg.sender === 'You' ? 'sent' : 'received');
+      msgElement.textContent = msg.text;
+      chatBox.appendChild(msgElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    });
+  </script>
 </body>
 </html>
