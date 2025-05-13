@@ -139,3 +139,26 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+
+  .search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 10px;
+  
+}
+
+#searchInput {
+  padding: 10px;
+  width: 400px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.search-container i {
+  color: #0056b3;
+  font-size: 1.2rem;
+}
+

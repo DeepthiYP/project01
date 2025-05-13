@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Group</title>
+  <link rel="stylesheet" href="creategroup.css" />
+  <script defer src="firebase-config.js"></script>
+  <script defer src="creategroup.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Create a Group</h2>
+    <input type="text" id="groupName" placeholder="Group Name" required />
+    
+    <div id="userList">
+      <!-- User checkboxes will be populated here -->
+    </div>
+
+    <button onclick="createGroup()">Create Group</button>
+    <p id="status"></p>
+  </div>
+  <!-- Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="creategroup.js"></script>
+
+  <script type="module" src="creategroup.js"></script>
+
+</body>
+</html>

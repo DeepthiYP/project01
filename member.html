@@ -17,7 +17,11 @@
       <p class="description">
           A student mentor is a supportive guide who helps peers navigate academics, build confidence, and achieve personal and educational goals.
       </p>
-  
+      <div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search by name or department..." />
+  <i class="fas fa-search"></i>
+  </div>
+
       <div class="team-members">
         <!-- Member 1 -->
         <div class="card">
@@ -74,5 +78,72 @@
         </div>
       </div>
     </section>
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyBo7qdC9YUC0agVL5BwjkAYnjOHg3a3Zbc",
+  authDomain: "freshathon-6fba1.firebaseapp.com",
+  databaseURL: "https://freshathon-6fba1-default-rtdb.firebaseio.com/",
+  projectId: "freshathon-6fba1",
+  storageBucket: "freshathon-6fba1.firebasestorage.app",
+  messagingSenderId: "672088413747",
+  appId: "1:672088413747:web:65dd4d4d9a407665a8b546"
+};
+
+  const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const membersContainer = document.querySelector('.team-members');
+const searchInput = document.getElementById('searchInput');
+
+let mentorsList = []; // Store mentors globally
+
+onValue(ref(db, 'mentors'), (snapshot) => {
+  mentorsList = []; // Clear list first
+  snapshot.forEach((childSnapshot) => {
+    const mentor = childSnapshot.val();
+    mentorsList.push(mentor);
+  });
+  displayMentors(mentorsList); // Show all initially
+});
+
+function displayMentors(mentors) {
+  membersContainer.innerHTML = ''; // Clear previous
+  mentors.forEach(mentor => {
+    membersContainer.innerHTML += `
+      <div class="card">
+        <img src="img.jpg" alt="${mentor.fullName}">
+        <div class="info">
+          <h3>${mentor.fullName}</h3>
+          <p class="role">${mentor.role}</p>
+          <p>${mentor.email}</p>
+          <p>${mentor.department}</p>
+          <div class="icons">
+            <a href="${mentor.linkedin}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <button class="connect-btn">Connect</button>
+          <a href="groupdiscussion.html"><button class="chat-button">Chat</button></a>
+        </div>
+      </div>
+    `;
+  });
+}
+
+// Search filter
+searchInput.addEventListener('input', function () {
+  const searchTerm = this.value.toLowerCase();
+  const filtered = mentorsList.filter(mentor =>
+    mentor.fullName.toLowerCase().includes(searchTerm) ||
+    mentor.department.toLowerCase().includes(searchTerm)
+  );
+  displayMentors(filtered);
+});
+
+</script>
+
   </body>
   </html>

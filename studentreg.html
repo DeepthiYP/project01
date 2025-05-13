@@ -7,42 +7,86 @@
   <link rel="stylesheet" href="studentreg.css" />
 </head>
 <body>
-
   <nav class="navbar">
-    <div class="logo">EduBridge</div>
-    <ul class="nav-links">
-   
-    </ul>
+    <div class="nav-container">
+      <h1 class="logo">EduBridge</h1>
+      <a class="community-link" href="#">Join Our Community</a>
+    </div>
   </nav>
-
-  <div class="form-container">
-    <h2>Mentor Registration Form</h2>
-    <form action="#" method="post">
+  <div class="container">
+    <h1>Mentor Registration Form</h1>
+    <form id="mentorForm">
       <label for="fullName">Full Name</label>
-      <input type="text" id="fullName" name="fullName" required />
+      <input type="text" id="fullName" required />
 
       <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required />
+      <input type="email" id="email" required />
 
       <label for="role">Select Role</label>
-      <select id="role" name="role" required>
-        <option value="">-- Select Mentor Type --</option>
-        <option value="student">Student Mentor</option>
-        <option value="staff">Staff Mentor</option>
+      <select id="role" required>
+        <option disabled selected>-- Select Mentor Type --</option>
+        <option>Staff Mentor</option>
+        <option>Student Mentor</option>
       </select>
 
       <label for="department">Department</label>
-      <input type="text" id="department" name="department" required />
+      <input type="text" id="department" required />
 
       <label for="linkedin">LinkedIn Profile URL</label>
-      <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile" required />
+      <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile" />
 
-      <label for="experience">Mentoring Experience</label>
-      <textarea id="experience" name="experience" rows="4" required></textarea>
-
-      <button type="submit">Submit Registration</button>
+      <button type="submit">Register</button>
     </form>
   </div>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+  <!-- Your Script -->
+  <script>
+    // Initialize Firebase
+  const firebaseConfig = {
+  apiKey: "AIzaSyBo7qdC9YUC0agVL5BwjkAYnjOHg3a3Zbc",
+  authDomain: "freshathon-6fba1.firebaseapp.com",
+  databaseURL: "https://freshathon-6fba1-default-rtdb.firebaseio.com/",
+  projectId: "freshathon-6fba1",
+  storageBucket: "freshathon-6fba1.firebasestorage.app",
+  messagingSenderId: "672088413747",
+  appId: "1:672088413747:web:65dd4d4d9a407665a8b546"
+};
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Wait until DOM is fully loaded
+    window.onload = function () {
+      const form = document.getElementById("mentorForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const fullName = document.getElementById("fullName").value;
+        const email = document.getElementById("email").value;
+        const role = document.getElementById("role").value;
+        const department = document.getElementById("department").value;
+        const linkedin = document.getElementById("linkedin").value;
+
+        const newMentorRef = database.ref("mentors").push();
+        newMentorRef.set({
+          fullName,
+          email,
+          role,
+          department,
+          linkedin
+        }).then(() => {
+          alert("Mentor Registered Successfully!");
+          form.reset();
+        }).catch((error) => {
+          console.error("Error saving data: ", error);
+        });
+      });
+    };
+  </script>
 </body>
 </html>
