@@ -59,21 +59,20 @@
           <span>EduBridge Group</span>
           <span class="member-count">1 member</span>
         </div>
-        <button class="create-group">+ Create Group</button>
+        <button class="create-group" onclick="openGroupModal()">+ Create Group</button>
       </div>
-
     </aside>
+
     <div id="groupModal" class="modal">
       <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <input type="text" placeholder="Search contacts..." class="modal-input" />
-        <div class="member-list">+ Add members...</div>
-        <button class="create-btn">Create Group</button>
+        <span class="close-btn" onclick="closeGroupModal()">&times;</span>
+        <input type="text" placeholder="Group Name" id="groupNameInput" class="modal-input" />
+        <div class="member-list">+ Add members (optional)</div>
+        <button class="create-btn" onclick="createGroup()">Create Group</button>
       </div>
     </div>
-    
-
   </main>
+
   <section class="scheduler">
     <h2>📅 Schedule a Session</h2>
     <form id="scheduleForm">
@@ -104,7 +103,11 @@
     <div class="grid" id="timetableGrid"></div>
   </section>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 
+  <!-- Main Logic -->
   <script src="home.js"></script>
 </body>
 </html>
